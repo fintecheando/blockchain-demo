@@ -48,14 +48,26 @@ http://localhost:3000
 Get the code:
 
 ```
-git clone https://github.com/anders94/blockchain-demo.git
+git clone https://github.com/fintecheando/blockchain-demo.git
 ```
 
 Run the Docker setup:
 
 ```
-cd blockchain-demo
-docker-compose up -d
+$ docker build -t com.mx.fintecheando.blockchain.experiment .
+Successfully tagged com.mx.fintecheando.blockchain.experiment:latest
+$ docker image ls | grep experiment
+com.mx.fintecheando.blockchain.experiment   latest                 b27157154d25        22 seconds ago      247MB
+$  docker run -p 3000:3000 com.mx.fintecheando.blockchain.experiment
+$ export DOCKER_ID_USER="YOUR_USER_ID"
+$ docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: YOUR_USER_ID
+Password:
+Login Succeeded
+$ docker tag com.mx.fintecheando.blockchain.experiment $DOCKER_ID_USER/com.mx.fintecheando.blockchain.experiment
+$ docker push $DOCKER_ID_USER/com.mx.fintecheando.blockchain.experiment
+The push refers to repository [docker.io/YOUR_USER_ID/com.mx.fintecheando.blockchain.experiment]
 ```
 
 Point a web browser at the demo:
